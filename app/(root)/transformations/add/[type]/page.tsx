@@ -1,9 +1,11 @@
 import Header from "@/components/shared/Header";
+import { transformationTypes } from "@/constants";
 
-const AddTransformationsPage = () => {
+const AddTransformationsPage = async ({params: {type},}: SearchParamProps) => {
+  const transformation = transformationTypes[type]
   return (
     <>
-      <Header title="Transformation Title" subtitle="Transformation SubTitle" />
+      <Header title={transformation.title} subtitle={transformation.subTitle} />
     </>
   );
 };
