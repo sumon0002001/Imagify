@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState, useTransition } from "react";
 import {
   Select,
   SelectContent,
@@ -23,7 +24,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { defaultValues, transformationTypes } from "@/constants";
+import {aspectRatioOptions, creditFee, defaultValues, transformationTypes } from "@/constants";
 
 export const formSchema = z.object({
   title: z.string(),
@@ -41,6 +42,7 @@ const TransformationForm = ({
   creditBalance,
 }: TransformationFormProps) => {
   const transformationType = transformationTypes[type];
+  const [image, setImage] = useState(data);
   const initialValues =
     data && action === "Update"
       ? {
