@@ -1,7 +1,11 @@
-import React from "react";
+import Header from "@/components/shared/Header";
 
 const AddTransformationsPage = () => {
-  return <div>addtransformationspage</div>;
+  return (
+    <>
+      <Header title="Transformation Title" subtitle="Transformation SubTitle" />
+    </>
+  );
 };
 
 export default AddTransformationsPage;
